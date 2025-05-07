@@ -3,72 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Manager - YourName</title>
+    <title>Task Manager - Your Personal Organizer</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Task Manager</h1>
+    <header>
+        <div class="header-container">
+            <h1><i class="fas fa-tasks"></i> Task Manager</h1>
             <div id="authActions">
                 <!-- Dynamically filled by JS -->
             </div>
-        </header>
+        </div>
+    </header>
 
+    <div class="container">
         <main id="appContent">
-            <!-- FIX: Welcome section should be VISIBLE by default -->
-            <section id="welcomeMessage">  <!-- REMOVED class="hidden" -->
-                <h2>Welcome!</h2>
-                <p>Please <a href="login.html">Login</a> or <a href="signup.html">Sign Up</a> to manage your tasks.</p>
-            </section>
-
-            <!-- FIX: Task section should be HIDDEN by default -->
-            <section id="taskSection" class="hidden"> <!-- KEPT class="hidden" -->
-                <h2 id="greeting">Tasks for <span id="usernameDisplay">User</span></h2>
-                
-                <form id="taskForm">
-                    <h3>Add/Edit Task</h3>
-                    <input type="hidden" id="taskId">
-                    <div class="form-group">
-                        <label for="taskName">Task Name:</label>
-                        <input type="text" id="taskName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="taskDate">Due Date:</label>
-                        <input type="date" id="taskDate">
-                    </div>
-                    <div class="form-group">
-                        <label for="taskTime">Due Time:</label>
-                        <input type="time" id="taskTime">
-                    </div>
-                    <!-- 
-                    <div class="form-group">
-                        <label for="taskImage">Image (Optional):</label>
-                        <input type="file" id="taskImage" accept="image/*">
-                    </div>
-                    -->
-                    <button type="submit" id="submitTaskButton">Add Task</button>
-                    <button type="button" id="clearTaskFormButton" class="secondary hidden">Clear Form</button>
-                </form>
-
-                <div id="taskListContainer">
-                    <h3>Your Tasks</h3>
-                    <ul id="taskList">
-                        <!-- Tasks will be dynamically inserted here -->
-                    </ul>
-                    <p id="noTasksMessage" class="hidden">No tasks yet. Add one above!</p>
+            <section id="welcomeMessage" class="card welcome-card">
+                <h2>Welcome to Your Task Manager</h2>
+                <p>Organize your life, one task at a time. Get started by creating an account or logging in.</p>
+                <div class="actions">
+                    <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    <a href="signup.html"><i class="fas fa-user-plus"></i> Sign Up</a>
                 </div>
             </section>
-            <!-- FIX: Error message should be HIDDEN by default -->
-            <p id="errorMessage" class="error-message hidden"></p> <!-- ADDED class="hidden" -->
+
+            <section id="taskSection" class="hidden">
+                <div class="card">
+                    <h2 id="greeting">Welcome, <span id="usernameDisplay">User</span>!</h2>
+                    <p>Here's an overview of your tasks. Add new ones or manage existing tasks below.</p>
+                </div>
+                
+                <button id="showTaskFormBtn" class="add-task-btn"><i class="fas fa-plus"></i></button>
+                
+                <div id="taskFormContainer" class="card task-form-card">
+                    <div class="task-form-header">
+                        <h3 id="formTitle">Add New Task</h3>
+                        <button id="closeFormBtn" class="close-form-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                    
+                    <form id="taskForm">
+                        <input type="hidden" id="taskId">
+                        <div class="form-group">
+                            <label for="taskName"><i class="fas fa-clipboard"></i> Task Name:</label>
+                            <input type="text" id="taskName" placeholder="Enter task name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="taskDate"><i class="fas fa-calendar"></i> Due Date:</label>
+                            <input type="date" id="taskDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="taskTime"><i class="fas fa-clock"></i> Due Time:</label>
+                            <input type="time" id="taskTime">
+                        </div>
+                        <div class="button-container">
+                            <button type="submit" id="submitTaskButton"><i class="fas fa-save"></i> <span>Add Task</span></button>
+                            <button type="button" id="clearTaskFormButton" class="secondary hidden"><i class="fas fa-undo"></i> Clear</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-list-check"></i> Your Tasks</h3>
+                    <div id="taskListContainer">
+                        <ul id="taskList">
+                            <!-- Tasks will be dynamically inserted here -->
+                        </ul>
+                        <p id="noTasksMessage" class="hidden"><i class="fas fa-inbox"></i> No tasks yet. Add one using the + button!</p>
+                    </div>
+                </div>
+            </section>
+            
+            <p id="errorMessage" class="error-message hidden"></p>
+            
+            <div id="loadingSpinner" class="spinner hidden"></div>
         </main>
-        
-        <footer>
-            <p>© 2023 Your Name - Task Manager</p>
-        </footer>
     </div>
+    
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Task Manager - Your Personal Organizer</p>
+    </footer>
 
     <script src="js/api.js"></script>
     <script src="js/tasks.js"></script> 
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

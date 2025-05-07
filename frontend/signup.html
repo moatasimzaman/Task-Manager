@@ -5,37 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - Task Manager</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <div class="header-container">
+            <h1><i class="fas fa-tasks"></i> Task Manager</h1>
+            <div id="authActions">
+                <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+            </div>
+        </div>
+    </header>
+
     <div class="container">
-        <header>
-            <h1>Task Manager</h1>
-        </header>
         <main class="auth-form">
-            <h2>Sign Up</h2>
+            <h2><i class="fas fa-user-plus"></i> Create Account</h2>
             <form id="signupForm">
                 <div class="form-group">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
+                    <label for="username"><i class="fas fa-user"></i> Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Choose a username" required autofocus>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
                 </div>
                 <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
+                    <label for="password"><i class="fas fa-lock"></i> Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Create a strong password" required>
                 </div>
-                <button type="submit">Sign Up</button>
+                <button type="submit"><i class="fas fa-user-plus"></i> Sign Up</button>
             </form>
-            <p id="errorMessage" class="error-message"></p>
-            <p>Already have an account? <a href="login.html">Login</a></p>
+            <p id="errorMessage" class="error-message hidden"></p>
+            <p class="mt-4 text-center">Already have an account? <a href="login.html" class="text-primary">Login</a></p>
+            
+            <div id="loadingSpinner" class="spinner hidden"></div>
         </main>
-        <footer>
-            <p>© 2023 Your Name - Task Manager</p>
-        </footer>
     </div>
+    
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Task Manager - Your Personal Organizer</p>
+    </footer>
+
     <script src="js/api.js"></script>
     <script src="js/auth.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
