@@ -1,0 +1,7 @@
+Flask
+Flask-MySQLdb
+Flask-Bcrypt
+Flask-Session
+python-dotenv
+Flask-CORS
+gunicorn

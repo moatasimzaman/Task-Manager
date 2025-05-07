@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager - YourName</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Task Manager</h1>
+            <div id="authActions">
+                <!-- Dynamically filled by JS -->
+            </div>
+        </header>
+
+        <main id="appContent">
+            <!-- FIX: Welcome section should be VISIBLE by default -->
+            <section id="welcomeMessage">  <!-- REMOVED class="hidden" -->
+                <h2>Welcome!</h2>
+                <p>Please <a href="login.html">Login</a> or <a href="signup.html">Sign Up</a> to manage your tasks.</p>
+            </section>
+
+            <!-- FIX: Task section should be HIDDEN by default -->
+            <section id="taskSection" class="hidden"> <!-- KEPT class="hidden" -->
+                <h2 id="greeting">Tasks for <span id="usernameDisplay">User</span></h2>
+                
+                <form id="taskForm">
+                    <h3>Add/Edit Task</h3>
+                    <input type="hidden" id="taskId">
+                    <div class="form-group">
+                        <label for="taskName">Task Name:</label>
+                        <input type="text" id="taskName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskDate">Due Date:</label>
+                        <input type="date" id="taskDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="taskTime">Due Time:</label>
+                        <input type="time" id="taskTime">
+                    </div>
+                    <!-- 
+                    <div class="form-group">
+                        <label for="taskImage">Image (Optional):</label>
+                        <input type="file" id="taskImage" accept="image/*">
+                    </div>
+                    -->
+                    <button type="submit" id="submitTaskButton">Add Task</button>
+                    <button type="button" id="clearTaskFormButton" class="secondary hidden">Clear Form</button>
+                </form>
+
+                <div id="taskListContainer">
+                    <h3>Your Tasks</h3>
+                    <ul id="taskList">
+                        <!-- Tasks will be dynamically inserted here -->
+                    </ul>
+                    <p id="noTasksMessage" class="hidden">No tasks yet. Add one above!</p>
+                </div>
+            </section>
+            <!-- FIX: Error message should be HIDDEN by default -->
+            <p id="errorMessage" class="error-message hidden"></p> <!-- ADDED class="hidden" -->
+        </main>
+        
+        <footer>
+            <p>© 2023 Your Name - Task Manager</p>
+        </footer>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/tasks.js"></script> 
+</body>
+</html>

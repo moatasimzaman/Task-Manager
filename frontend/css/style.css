@@ -1,0 +1,204 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    max-width: 960px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    border-bottom: #0779e4 3px solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 1.8rem;
+}
+
+#authActions a, #authActions button {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 15px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+#authActions button {
+    background-color: #0779e4;
+    border: none;
+    cursor: pointer;
+}
+#authActions a:hover, #authActions button:hover {
+    background-color: #4a90e2;
+}
+
+
+main {
+    padding: 20px 0;
+}
+
+.auth-form {
+    background: #fff;
+    padding: 30px;
+    margin: 30px auto;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    max-width: 450px;
+}
+
+.auth-form h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="date"],
+.form-group input[type="time"],
+.form-group input[type="file"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Makes padding and border part of element's total width and height */
+}
+
+
+button {
+    background: #0779e4;
+    color: #fff;
+    border: 0;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+button.secondary {
+    background: #6c757d;
+}
+button.secondary:hover {
+    background: #545b62;
+}
+button.danger {
+    background: #dc3545;
+}
+button.danger:hover {
+    background: #c82333;
+}
+
+
+.error-message {
+    color: red;
+    background-color: #ffebee;
+    border: 1px solid red;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#taskSection, #welcomeMessage {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+#taskForm {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+#taskForm h3, #taskListContainer h3 {
+    margin-top: 0;
+    color: #0779e4;
+}
+
+#taskList {
+    list-style: none;
+    padding: 0;
+}
+
+#taskList li {
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+#taskList li:hover {
+    background-color: #e9e9e9;
+}
+
+#taskList li .task-info {
+    flex-grow: 1;
+}
+#taskList li .task-info strong {
+    font-size: 1.1em;
+    color: #333;
+}
+#taskList li .task-info .task-meta {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+}
+
+#taskList li .task-actions button {
+    margin-left: 10px;
+    padding: 6px 10px;
+    font-size: 0.9rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+}
+footer p {
+    margin: 0;
+}

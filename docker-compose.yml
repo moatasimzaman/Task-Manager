@@ -1,0 +1,43 @@
+# NO "version:" line at the top
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_db_taskmanager_moatasim
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: task_manager_db
+      MYSQL_USER: taskuser
+      MYSQL_PASSWORD: taskpassword
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data_taskmanager_moatasim:/var/lib/mysql
+
+  backend:
+    build: ./backend
+    container_name: backend_flask_taskmanager_moatasim
+    restart: always
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app
+    # THIS 'environment' BLOCK IS KEY:
+    # It only defines variables that are specific to the Docker runtime
+    # or that we want to explicitly set/override for the container.
+    # Database credentials (MYSQL_USER, MYSQL_PASSWORD, MYSQL_DB)
+    # and SECRET_KEY will be loaded *solely* by 'env_file'.
+    environment:
+      - FLASK_APP=run.py
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+      - MYSQL_HOST=db  # Tells Flask the DB service name within Docker network
+      - PYTHONUNBUFFERED=1 # For Docker logging
+    depends_on:
+      - db
+    env_file:
+      - ./backend/.env # Loads ALL variables from this file into the container's env
+
+volumes:
+  mysql_data_taskmanager_moatasim:
