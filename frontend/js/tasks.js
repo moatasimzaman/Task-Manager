@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskTimeInput = document.getElementById('taskTime');
     
     const submitTaskButton = document.getElementById('submitTaskButton');
-    const submitButtonText = submitTaskButton.querySelector('span');
+    const submitButtonText = submitTaskButton ? submitTaskButton.querySelector('span') : null;
     const clearTaskFormButton = document.getElementById('clearTaskFormButton');
     const showTaskFormBtn = document.getElementById('showTaskFormBtn');
     const closeFormBtn = document.getElementById('closeFormBtn');
@@ -91,6 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (greetingSpan) greetingSpan.textContent = displayName;
                 if (authActionsDiv) {
                     authActionsDiv.innerHTML = `
+                        <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+                        <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
                         <span>Hello, ${displayName}!</span>
                         <button id="logoutButton"><i class="fas fa-sign-out-alt"></i> Logout</button>
                     `;
@@ -103,6 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 if (authActionsDiv) {
                     authActionsDiv.innerHTML = `
+                        <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+                        <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
                         <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
                         <a href="signup.html"><i class="fas fa-user-plus"></i> Sign Up</a>
                     `;
@@ -116,6 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
             displayError("Could not verify session. Please try logging in.");
             if (authActionsDiv) {
                 authActionsDiv.innerHTML = `
+                    <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+                    <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
                     <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
                     <a href="signup.html"><i class="fas fa-user-plus"></i> Sign Up</a>
                 `;
@@ -334,8 +340,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function resetTaskForm() {
         if (taskForm) taskForm.reset();
         taskIdInput.value = '';
-        submitButtonText.textContent = 'Add Task';
-        formTitle.textContent = 'Add New Task';
+        if (submitButtonText) submitButtonText.textContent = 'Add Task';
+        if (formTitle) formTitle.textContent = 'Add New Task';
         if (clearTaskFormButton) clearTaskFormButton.classList.add('hidden');
         clearError();
     }

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Task Manager</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .about-section {
+            padding: 2rem 0;
+        }
+        
+        .about-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .about-header h2 {
+            color: #3a86ff;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .about-header p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #6c757d;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .team-section {
+            margin-top: 4rem;
+        }
+        
+        .team-section h3 {
+            text-align: center;
+            color: #3a86ff;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        .team-members {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2.5rem;
+        }
+        
+        .member-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 350px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .profile-container {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, #4361ee 0%, #3a86ff 100%);
+            color: white;
+        }
+        
+        .profile-pic {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background-color: #f8f9fa;
+            border: 5px solid white;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-pic i {
+            font-size: 5rem;
+            color: #d1d1d1;
+        }
+        
+        .member-info {
+            padding: 1.5rem;
+        }
+        
+        .member-info h4 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .member-detail {
+            display: flex;
+            margin-bottom: 0.8rem;
+            align-items: center;
+        }
+        
+        .member-detail i {
+            margin-right: 10px;
+            color: #3a86ff;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .member-detail span {
+            color: #6c757d;
+            font-size: 1rem;
+        }
+        
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4361ee 0%, #3a86ff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .feature-card h4 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .feature-card p {
+            color: #6c757d;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1><i class="fas fa-tasks"></i> Task Manager</h1>
+            <div id="authActions">
+                <!-- Dynamically filled by JS -->
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="about.html" class="active"><i class="fas fa-info-circle"></i> About Us</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <main>
+            <section class="about-section">
+                <div class="about-header">
+                    <h2>About Task Manager</h2>
+                    <p>
+                        Task Manager is a powerful and intuitive web application designed to help you organize your daily activities 
+                        and enhance your productivity. Created as part of a Cloud Computing project, our application emphasizes 
+                        simplicity, reliability, and security. With its clean interface and user-friendly features, Task Manager 
+                        makes it easy to keep track of your tasks, set deadlines, and stay on top of your commitments.
+                    </p>
+                </div>
+                
+                <!-- Features Section -->
+                <div class="feature-cards">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h4>Cloud-Based</h4>
+                        <p>Built with modern cloud technologies, allowing for scalability, reliability, and accessibility from anywhere.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h4>Secure</h4>
+                        <p>With robust user authentication and data encryption, your tasks and personal information remain protected.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>Responsive Design</h4>
+                        <p>Access your tasks from any device - desktop, tablet, or mobile phone with a consistent user experience.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="team-section">
+                <h3>Our Team</h3>
+                <div class="team-members">
+                    <div class="member-card">
+                        <div class="profile-container">
+                            <div class="profile-pic">
+                                <img src="Moatasim_Zaman.jpg" alt="Moatasim Zaman">
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Moatasim Zaman</h4>
+                            <div class="member-detail">
+                                <i class="fas fa-id-card"></i>
+                                <span>21i-2996</span>
+                            </div>
+                            <div class="member-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Computer Science</span>
+                            </div>
+                            <div class="member-detail">
+                                <i class="fas fa-university"></i>
+                                <span>FAST Islamabad</span>
+                            </div>
+                            <div class="member-detail">
+                                <i class="fas fa-code"></i>
+                                <span>Full-stack Developer</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="member-card">
+                        <div class="profile-container">
+                            <div class="profile-pic">
+                                <!-- Replace with actual image or leave icon placeholder -->
+                                <i class="fas fa-user"></i>
+                                <!-- For actual image use: <img src="path/to/profile.jpg" alt="Shujaan Azhar"> -->
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Shujaan Azhar</h4>
+                            <div class="member-detail">
+                                <i class="fas fa-id-card"></i>
+                                <span>21i-0006</span>
+                            </div>
+                            <div class="member-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Computer Science</span>
+                            </div>
+                            <div class="member-detail">
+                                <i class="fas fa-university"></i>
+                                <span>FAST Islamabad</span>
+                            </div>
+                            <div class="member-detail">
+                                <i class="fas fa-code"></i>
+                                <span>Full-stack Developer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Task Manager - Your Personal Organizer</p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/tasks.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Function to handle user authentication display
+        async function updateAuthDisplay() {
+            try {
+                const status = await request('/auth/status', 'GET', null, false);
+                const authActions = document.getElementById('authActions');
+                
+                if (status.logged_in) {
+                    const displayName = status.username.replace(/\b\w/g, l => l.toUpperCase()) || 'User';
+                    authActions.innerHTML = `
+                        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                        <a href="about.html" class="active"><i class="fas fa-info-circle"></i> About Us</a>
+                        <span>Hello, ${displayName}!</span>
+                        <button id="logoutButton"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                    `;
+                    document.getElementById('logoutButton').addEventListener('click', async () => {
+                        try {
+                            await request('/auth/logout', 'POST');
+                            window.location.href = 'login.html';
+                        } catch (error) {
+                            console.error('Logout failed:', error);
+                        }
+                    });
+                } else {
+                    authActions.innerHTML = `
+                        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                        <a href="about.html" class="active"><i class="fas fa-info-circle"></i> About Us</a>
+                        <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                        <a href="signup.html"><i class="fas fa-user-plus"></i> Sign Up</a>
+                    `;
+                }
+            } catch (error) {
+                console.error("Error checking auth status:", error);
+            }
+        }
+        
+        // Call the function when the page loads
+        updateAuthDisplay();
+    </script>
+</body>
+</html>
