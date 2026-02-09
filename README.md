@@ -40,7 +40,7 @@ The primary goal of the overall project is to deploy this application onto AWS u
 
 1.  **Clone the Repository:**
     ```bash
-    git clone <your-repository-url>
+    git clone <>
     cd task-manager-aws
     ```
 
@@ -169,4 +169,4 @@ This README currently focuses only on the local Docker-based development setup.
 
 ## Author(s)
 
-*   Your Name(s) - Add your name(s) here
+*   Moatasim Zaman
